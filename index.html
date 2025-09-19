@@ -1,182 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAT Cargo VAD LLC</title>
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            color: #333;
-        }
-        nav {
-            background: #000;
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 30px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        nav .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-        nav ul li {
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 16px;
-        }
-        .hero {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            padding: 80px 20px;
-            background: #111;
-            color: #fff;
-            min-height: 100vh;
-            animation: fadeIn 2s ease-in-out;
-        }
-        .hero-text {
-            max-width: 500px;
-            padding: 20px;
-            animation: slideInLeft 1.5s ease;
-        }
-        .hero-text h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        .hero-text p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-        .hero-img img {
-            max-width: 400px;
-            width: 100%;
-            border-radius: 10px;
-            animation: slideInRight 1.5s ease;
-        }
-        .section {
-            padding: 60px 20px;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease;
-        }
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .section h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-        .section p {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #555;
-        }
-        .contact {
-            background: #e9e9e9;
-            padding: 60px 20px;
-        }
-        footer {
-            background: #000;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-        }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>OCEAN GURU, LLC — New Technologies • Sacramento, CA</title>
+<meta name="description" content="OCEAN GURU, LLC — innovative new-tech solutions in Sacramento, CA. Cloud & AI, IoT, data platforms, and automation.">
+<style>
+  :root{
+    --ocean:#0891b2;     /* ocean blue */
+    --deep:#0b132b;      /* deep navy */
+    --aqua:#22d3ee;      /* aqua accent */
+    --ink:#0f172a;       /* dark text */
+    --bg:#f6fbff;        /* page bg */
+    --card:#ffffff;      /* cards */
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:Inter,system-ui,Arial,Helvetica,sans-serif;background:var(--bg);color:#152033}
+  a{color:var(--ocean);text-decoration:none}
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideInLeft {
-            from { transform: translateX(-50px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        @keyframes slideInRight {
-            from { transform: translateX(50px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-    </style>
+  header{
+    background:linear-gradient(135deg,var(--deep),#11203b);
+    color:#fff;text-align:center;padding:28px 16px;border-bottom:6px solid var(--ocean);
+    position:relative;overflow:hidden
+  }
+  header h1{margin:0;font-size:2.3rem;letter-spacing:.3px}
+  header p{margin:6px 0 0;opacity:.95}
+  header:after{
+    content:"";position:absolute;right:-70px;top:-70px;width:240px;height:240px;
+    background:radial-gradient(closest-side,rgba(8,145,178,.35),transparent 70%);
+    border-radius:50%;filter:blur(6px);animation:float 7s ease-in-out infinite
+  }
+  @keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(-18px,12px)}}
+
+  nav{background:#0e1830;text-align:center;padding:12px}
+  nav a{color:#fff;margin:0 14px;font-weight:700}
+  nav a:hover{color:var(--aqua)}
+
+  .hero{max-width:1100px;margin:22px auto;display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:center;padding:0 14px}
+  .hero img{
+    width:100%;border-radius:14px;border:4px solid var(--ocean);object-fit:cover;
+    animation:pulse 2.8s ease-in-out infinite
+  }
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(8,145,178,0)}50%{box-shadow:0 0 0 14px rgba(8,145,178,.16)}}
+  .hero .box{background:var(--card);border-left:6px solid var(--aqua);border-radius:14px;padding:16px}
+  .chip{
+    display:inline-flex;align-items:center;gap:8px;background:#eafaff;color:#0d3d4b;border:1px solid #c7ecf6;
+    border-radius:999px;padding:6px 12px;margin:6px 6px 0 0;font-size:.9rem
+  }
+  .chip.wave{animation:wave 2.6s ease-in-out infinite}
+  @keyframes wave{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
+
+  .section{max-width:1100px;margin:22px auto;background:var(--card);padding:22px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+  .section h2{margin:0 0 12px;color:var(--ink)}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  ul{margin:0;padding-left:18px;line-height:1.8}
+
+  .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+  .card{
+    background:#ecfeff;border:1px solid #c8f5fb;border-left:6px solid var(--ocean);
+    border-radius:10px;padding:12px;transition:transform .2s ease,box-shadow .2s ease
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 10px 16px rgba(8,145,178,.16)}
+
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:14px}
+  .gallery img{
+    width:100%;border-radius:10px;border:2px solid var(--ocean);object-fit:cover;aspect-ratio:4/3;
+    transition:transform .25s ease
+  }
+  .gallery img:hover{transform:scale(1.03)}
+
+  .cta{margin-top:12px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{background:linear-gradient(90deg,var(--ocean),#0ea5b9);color:#00141a;padding:12px 16px;border-radius:10px;font-weight:800}
+  .btn.secondary{background:#fff;color:#0b0f19;border:2px solid #0b0f19}
+
+  footer{background:#0e1830;color:#fff;text-align:center;padding:18px;margin-top:26px;border-top:6px solid var(--ocean)}
+
+  /* Floating buttons */
+  .fab{position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;gap:10px;z-index:9999}
+  .fab a{
+    display:inline-flex;align-items:center;gap:8px;padding:12px 14px;border-radius:999px;
+    color:#111;background:#fff;box-shadow:0 10px 16px rgba(0,0,0,.18);font-weight:800;border:2px solid var(--ocean)
+  }
+  .fab a.call{background:var(--ocean);color:#fff;border-color:var(--ocean)}
+  .fab a:hover{filter:brightness(1.05);transform:translateY(-1px)}
+
+  @media (max-width:900px){ .hero{grid-template-columns:1fr} }
+</style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">PAT Cargo VAD LLC</div>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<header>
+  <h1>OCEAN GURU, LLC</h1>
+  <p>New Technologies • Sacramento, CA 95833</p>
+</header>
 
-    <div class="hero" id="home">
-        <div class="hero-text">
-            <h1>PAT Cargo VAD LLC</h1>
-            <p>Your trusted partner in transportation and warehousing. We provide reliable cargo services and storage solutions to meet your business needs with efficiency and care.</p>
-        </div>
-        <div class="hero-img">
-            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=934&q=80" alt="Cargo Services">
-        </div>
+<nav>
+  <a href="#about">About</a>
+  <a href="#solutions">Solutions</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="https://avatars.mds.yandex.net/i?id=4a2ff3cd4e3a5ec8a83dbd7679094a84ab8b43ab-15406506-images-thumbs&n=13" alt="Ocean-themed tech visualization">
+  <div class="box">
+    <h2 style="margin:0 0 6px;">Tech that moves like water.</h2>
+    <p>We design and integrate future-ready platforms—scalable, resilient, and energy-aware—to help teams build, ship, and learn faster.</p>
+    <div>
+      <span class="chip wave">☁️ Cloud & AI</span>
+      <span class="chip">🛰️ IoT & Edge</span>
+      <span class="chip">📊 Data Platforms</span>
+      <span class="chip">⚙️ Automation</span>
     </div>
-
-    <div class="section" id="about">
-        <h2>About Us</h2>
-        <p>PAT Cargo VAD LLC is a Domestic LLC based in Arizona, offering specialized services in transportation and warehousing. With a focus on reliability and customer satisfaction, we have been serving businesses since 2021.</p>
-        <p><strong>Registered Address:</strong><br>
-        2902 W Sweetwater Ave, Apt 2190, Phoenix, AZ 85029, United States</p>
+    <div class="cta">
+      <a class="btn" href="tel:+12233624854">Call: +1 (223) 362-4854</a>
+      <a class="btn secondary" href="mailto:admin@wesdtyhxk.shop">Email: admin@wesdtyhxk.shop</a>
     </div>
+  </div>
+</section>
 
-    <div class="section contact" id="contact">
-        <h2>Contact Us</h2>
-        <p><strong>Email:</strong> <a href="mailto:contact@patcargovadllc.click">contact@patcargovadllc.click</a></p>
-        <p><strong>Agent Address:</strong><br>
-        2902 W Sweetwater Ave, Apt 2190, Phoenix, AZ 85029, United States</p>
+<!-- ABOUT -->
+<section id="about" class="section">
+  <h2>About Us</h2>
+  <div class="two-col">
+    <p><strong>OCEAN GURU, LLC</strong> delivers modern technology solutions for startups and enterprises. From discovery to deployment, we build secure, observable systems with clear documentation and hands-on enablement.</p>
+    <p><strong>Address:</strong> 2804 Gateway Oaks Dr Ste 100, Sacramento, CA 95833-4346, United States • <strong>Phone:</strong> <a href="tel:+12233624854">+1 (223) 362-4854</a> • <strong>Email:</strong> <a href="mailto:admin@wesdtyhxk.shop">admin@wesdtyhxk.shop</a></p>
+  </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section id="solutions" class="section">
+  <h2>Core Solutions</h2>
+  <div class="features">
+    <div class="card"><strong>Cloud & AI Engineering</strong><br/>MLOps, model serving, vector search, and cost-efficient cloud architectures.</div>
+    <div class="card"><strong>IoT & Edge</strong><br/>Device onboarding, telemetry pipelines, and real-time analytics at the edge.</div>
+    <div class="card"><strong>Data Platforms</strong><br/>ELT/ETL, lakehouse design, governance, lineage, and BI enablement.</div>
+    <div class="card"><strong>DevOps & Automation</strong><br/>CI/CD, IaC, Kubernetes, observability, and incident response hardening.</div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="section">
+  <h2>Gallery</h2>
+  <div class="gallery">
+    <img src="https://avatars.mds.yandex.net/i?id=8f36ee20eb27dfd1d5e203ec0ad3e34d7d329a06-11518590-images-thumbs&n=13" alt="Cloud stack">
+    <img src="https://yandex-images.clstorage.net/Joli96389/b1d967d3W0P/Rj8pMo4xonuvm2gyvg6cohX3d9zspSK3HDh5Ui9jBAV3SPhYJ_0uo5vjNe7n4gg2T5PXjlhQabWyzCg6Dtrt35OseiNedvSvPpz9ML7P3CVCp7Ob-iQ18YysuhBuOV5N6oCjB372cr1RczS4p6JbcJvRABfXQTb3MFprqA6LYEDL8-U2wqwrsy3OZfi1wdhhyHC6lf5ucfYdrC7PM_dVRqPOpQ-_9be7UHi-867j1adREoMRUtQx-fsa7SvADKUOg_gn809j6bEihaM7MIOWpMM1uhe7JLa5Hu9pSj77GgUpBaBNe3y_NtbwsvrjahjmEFqAEtuT-f9xE2noxwNuS8b3LPtOoWV5Ls5iv3mJFmDLOfvUNeM8tlfuL4y_PlFJb0Nshvz1sfISsHKyrS9T5l6XzxSTGLC8f9zooo2KoE-KMmt-z-spuSYOZXc9xVNtC3fznX6id72QYmdHcrDYCWoEaofw_b35U3Q9_yLlVOmTkcoZHt0xPj5cpazFRO8KSnHlM87kJLAgAC8wNgTULYrxPNW75XS51qVnzP6z2k-oTexFc_76-5H2vfBk4lgp3VjCmFDU8TJ4UOhuCo9nhwM-5XZIq6P_4sOuMbAOHOcGsvpdcSf-f5VlZIG7fZOE5kPqhzMysvVc_z_2Za-XqdtTAhydmfA9O53rZgzN54mAP-03DOxvOmBEI3C3jBkgh3y-VXrt9HCW6yzJ-fqdCGCMJQExP3A623d4Oq9mXm6R34XeHtW8N_dTouaDR2sITLGkfEbqpDAmQCj__gYWYgVyfJP3I3C-2WlkQPKzlUhqgG2FNj9xep67fbhg6JNukNDIG1gd9X460etqRYtgSg92pTyMb2Ax6wwt-nUP1W8IMTfY_-3_MJjsZgyw8hiM4cToAP94eLKfNjjyJ-ebYhCUi5jeE7c0s9Pk5ItG7QfG-Wr7C--r-i4Lrbz0CpetSv92XTKsvn0QpOXHO4" alt="Data visualization">
+    <img src="https://avatars.mds.yandex.net/i?id=db0f0b0b94ae2c85e310f5c5de2a681d552b57a2-12569903-images-thumbs&n=13" alt="IoT sensors">
+    <img src="https://avatars.mds.yandex.net/i?id=8cfbc5de1f88ed54cab235ab446b4d6b20dc3bcf-12144624-images-thumbs&n=13" alt="Edge compute">
+    <img src="https://avatars.mds.yandex.net/i?id=8cfbc5de1f88ed54cab235ab446b4d6b20dc3bcf-12144624-images-thumbs&n=13" alt="Edge compute close">
+    <img src="https://avatars.mds.yandex.net/i?id=1c9d8d59cf0ec637d381226c5f4f715529a532b8-5231719-images-thumbs&n=13" alt="Automation pipelines">
+    <img src="https://avatars.mds.yandex.net/i?id=5cda9a324d44fa2a64faffc708d424c5ebe97a76-5967468-images-thumbs&n=13" alt="Cloud architecture boards">
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <h2>Contact</h2>
+  <div class="two-col">
+    <div>
+      <p>📧 <strong>Email:</strong> <a href="mailto:admin@wesdtyhxk.shop">admin@wesdtyhxk.shop</a></p>
+      <p>📞 <strong>Phone:</strong> <a href="tel:+12233624854">+1 (223) 362-4854</a></p>
+      <p>📍 <strong>Address:</strong> 2804 Gateway Oaks Dr Ste 100, Sacramento, CA 95833-4346</p>
     </div>
+    <div>
+      <p><em>Hours</em></p>
+      <ul>
+        <li>Mon–Fri: 9:00 – 18:00 (PT)</li>
+        <li>Sat–Sun: By appointment</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        &copy; 2025 PAT Cargo VAD LLC. All rights reserved.
-    </footer>
+<!-- Floating Action Buttons -->
+<div class="fab">
+  <a class="call" href="tel:+12233624854">📞 Call</a>
+  <a class="email" href="mailto:admin@wesdtyhxk.shop?subject=Project%20Inquiry&body=Company:%0AProject%20summary:%0ATimeline:%0ABudget%20range:%0A">✉️ Email</a>
+</div>
 
-    <script>
-        // Intersection Observer for fade-in effect
-        const sections = document.querySelectorAll('.section');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-    </script>
+<footer>
+  <p>&copy; 2025 OCEAN GURU, LLC — All rights reserved.</p>
+</footer>
 
 </body>
 </html>
